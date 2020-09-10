@@ -14,15 +14,15 @@
 
   <div class="header-container">
     <header>
-      <div class="logo"><span class="highlight">BetLife</span> - Healthy timers</div>
+      <div class="logo"><a href="index.html"><span class="highlight">BetLife</span> - Healthy timers</a></div>
 
       <nav>
-        <a href="#" class="mybutton">CONTACT US</a>
+        <a href="#" class="mybutton">ABOUT US</a>
+        <a href="contactUs.html" class="mybutton">CONTACT US</a>
       </nav>
 
       <div class="mob-wrapper">
         <img src="public/images/icon-burger-menu.svg" alt="Mobile Menu Icon" style="width: 40px;" class="burgermenu">
-
         <div class="mob-nav">
           <a href="#" class="navbutton">ABOUT</a>
           <a href="#" class="navbutton">PRICING</a>
@@ -33,11 +33,13 @@
   </div>
 
   <div class="container">
-    <div class="col">
-      <label for="check">Zdravý zrak</label>
-      <input type="checkbox" id="check">
+
+    <label for="check" class="col">
+      <p>Zdravý zrak</p>
+      <!-- <label for="check">Zdravý zrak</label> -->
+      <input type="checkbox" id="check" onclick="myFunction()">
       <p>Branding: Lorem ipsum dolor sit amet, consectetur adipisicing <span class="highlight">elit</span>.</p>
-    </div>
+    </label>
 
     <div class="col">
       <h3>Zdravé zápästie</h3>
@@ -64,14 +66,43 @@
       <p>Branding: Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
     </div>
 
-    <button>Spusti časovače</button>
+    <button>Turn ON timers</button>
+
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-    crossorigin="anonymous"></script>
-  <script src="scripts.js"></script>
+  <div class="footer-container">
+    <footer>
+      <div class="logo"><a href="index.html"><span class="highlight">BetLife</span> - Healthy timers</a></div>
 
+      <nav>
+        <a href="#" class="mybutton">ABOUT US</a>
+        <a href="contactUs.html" class="mybutton">CONTACT US</a>
+      </nav>
+
+      <div class="mob-wrapper">
+        <img src="public/images/icon-burger-menu.svg" alt="Mobile Menu Icon" style="width: 40px;" class="burgermenu">
+        <div class="mob-nav">
+          <a href="#" class="navbutton">ABOUT</a>
+          <a href="#" class="navbutton">PRICING</a>
+          <a href="#" class="navbutton">CONTACT US</a>
+        </div>
+      </div>
+    </footer>
+  </div>
 
 </body>
 
 </html>
+
+
+
+<script>
+  function myFunction() {
+    var checkbox = document.getElementById('check');
+    var timerSelector = document.getElementsByClassName('col');
+
+    if (checkbox.checked == true) {
+      checkbox.style.width = '150px';
+    }
+  }
+</script>
