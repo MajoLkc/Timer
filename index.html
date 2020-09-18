@@ -39,7 +39,7 @@
       <p>Zdravý zrak</p>
       <!-- <label for="check">Zdravý zrak</label> -->
       <input type="checkbox" id="check" onclick="myFunction()">
-      <p>Branding: Lorem ipsum dolor sit amet, consectetur adipisicing <span class="highlight">elit</span>.</p>
+      <p id="countdown" class="timer"></p>
     </label>
 
     <div class="col">
@@ -98,6 +98,27 @@
 
 
 <script>
+
+  var seconds = 60 * 45;
+  var countdownTimer = setInterval('secondPassed()', 1000);
+
+  function secondPassed() {
+    var minutes = Math.round((seconds - 30) / 60);
+    var remainingSeconds = seconds % 60;
+
+    if (remainingSeconds < 10) {
+      remainingSeconds = '0' + remainingSeconds;
+    }
+
+    document.getElementById('countdown').innerHTML = minutes + ':' + remainingSeconds;
+
+    if (seconds == 0) {
+      clearInterval(countdownTimer);
+      document.getElementById('countdown').innerHTML = 'Buzz Buzz';
+    } else {
+      seconds --;
+    }
+  }
 
   // function myFunction() {
   //   var checkbox = document.getElementById('check');
