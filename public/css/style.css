@@ -41,7 +41,7 @@ nav a:hover {
 .footer-container {
   background-color: rgb(60, 60, 60);
   min-height: 100px;
-  position: fixed;
+  position: relative;
   width: 100%;
 }
 
@@ -97,10 +97,6 @@ footer {
   cursor: pointer;
   border: 5px solid rgb(60, 60, 60);
 }
-
-/* .col input {
-  display: none;
-} */
 
 .hide-desktop-only {
   display: none;
