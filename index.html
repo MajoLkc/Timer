@@ -38,7 +38,7 @@
     <label for="check" class="col">
       <p>Zdravý zrak</p>
       <!-- <label for="check">Zdravý zrak</label> -->
-      <input type="checkbox" id="check" onclick="myFunction()">
+      <input type="checkbox" id="check">
       <p id="countdown" class="timer"></p>
     </label>
 
@@ -67,7 +67,7 @@
       <p>Branding: Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
     </div>
 
-    <button>Turn ON timers</button>
+    <button id="turnOnTimers">Turn ON timers</button>
 
   </div>
 
@@ -98,34 +98,62 @@
 
 
 <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const timeLeftDisplay = document.querySelector('#countdown');
+    const startBtn = document.querySelector('#turnOnTimers');
+    const numberOfMinutes = 0;
+    const numberOfSeconds = 10;
+    let seconds = (60 * numberOfMinutes) + numberOfSeconds;
 
-  var seconds = 60 * 45;
-  var countdownTimer = setInterval('secondPassed()', 1000);
+    function countdown() {
+      setInterval(function () {
+        let minutes = Math.round((seconds - 30) / 60);
+        let remainingSeconds = seconds % 60;
 
-  function secondPassed() {
-    var minutes = Math.round((seconds - 30) / 60);
-    var remainingSeconds = seconds % 60;
+        if (minutes < 10) {
+          minutes = '0' + minutes;
+        }
 
-    if (remainingSeconds < 10) {
-      remainingSeconds = '0' + remainingSeconds;
+        // add 0 if there is less then 10 seconds
+        if (remainingSeconds < 10) {
+          remainingSeconds = '0' + remainingSeconds;
+        }
+
+        // stop counting at 0
+        if (seconds <= 0) {
+          clearInterval(remainingSeconds = 0);
+          clearInterval(minutes = 0);
+          timeLeftDisplay.innerHTML = 'Time left! You should do...';
+        } else {
+          timeLeftDisplay.innerHTML = minutes + ':' + remainingSeconds;
+          seconds--;
+        }
+      }, 1000)
     }
+    startBtn.addEventListener('click', countdown)
+  })
 
-    document.getElementById('countdown').innerHTML = minutes + ':' + remainingSeconds;
+  // var startButton = document.getElementById('turnOnTimers');
 
-    if (seconds == 0) {
-      clearInterval(countdownTimer);
-      document.getElementById('countdown').innerHTML = 'Buzz Buzz';
-    } else {
-      seconds --;
-    }
-  }
+  // startButton.onclick = function secondPassed() {
+  //   var seconds = 60 * 45;
 
-  // function myFunction() {
-  //   var checkbox = document.getElementById('check');
-  //   var timerSelector = document.getElementsByClassName('col');
 
-  //   if (checkbox.checked == true) {
-  //     checkbox.style.width = '150px';
+  //   var minutes = Math.round((seconds - 30) / 60);
+  //   var remainingSeconds = seconds % 60;
+
+  //   if (remainingSeconds < 10) {
+  //     remainingSeconds = '0' + remainingSeconds;
+  //   }
+
+  //   document.getElementById('countdown').innerHTML = minutes + ':' + remainingSeconds;
+
+  //   if (seconds == 0) {
+  //     clearInterval(countdownTimer);
+  //     document.getElementById('countdown').innerHTML = 'Buzz Buzz';
+  //   } else {
+  //     seconds--;
   //   }
   // }
+  // var countdownTimer = setInterval(secondPassed(), 1000);
 </script>
