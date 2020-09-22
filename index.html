@@ -35,37 +35,42 @@
 
   <div class="container">
 
-    <label for="check" class="col">
+    <label for="timer-1" class="col">
       <p>Zdravý zrak</p>
       <!-- <label for="check">Zdravý zrak</label> -->
-      <input type="checkbox" id="check">
-      <p id="countdown" class="timer"></p>
+      <input type="checkbox" id="timer-1">
+      <p id="countdown"><span id="minutes-1">05</span>:<span id="seconds-1">50</span></p>
     </label>
 
-    <div class="col">
+    <label for="timer-2" class="col">
       <h3>Zdravé zápästie</h3>
-      <p>Branding: Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    </div>
+      <input type="checkbox" id="timer-2">
+      <p id="countdown"><span id="minutes-2">09</span>:<span id="seconds-2">15</span></p>
+    </label>
 
-    <div class="col">
+    <label for="timer-3" class="col">
       <h3>Zdravá chrbtica</h3>
-      <p>Branding: I'm going to try an impress you with my typing skills.</p>
-    </div>
+      <input type="checkbox" id="timer-3">
+      <p id="countdown"><span id="minutes-3">12</span>:<span id="seconds-3">00</span></p>
+    </label>
 
-    <div class="col">
+    <label for="timer-4" class="col">
       <h3>Pitný režim</h3>
-      <p>Branding: Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    </div>
+      <input type="checkbox" id="timer-4">
+      <p id="countdown"><span id="minutes-4">05</span>:<span id="seconds-4">50</span></p>
+    </label>
 
-    <div class="col">
+    <label for="timer-5" class="col">
       <h3>Prestávka v učení</h3>
-      <p>Branding: Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    </div>
+      <input type="checkbox" id="timer-5">
+      <p id="countdown"><span id="minutes-5">05</span>:<span id="seconds-5">50</span></p>
+    </label>
 
-    <div class="col">
+    <label for="timer-6" class="col">
       <h3>NEJAKÝ ĎALŠÍ</h3>
-      <p>Branding: Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    </div>
+      <input type="checkbox" id="timer-6">
+      <p id="countdown"><span id="minutes-6">05</span>:<span id="seconds-6">50</span></p>
+    </label>
 
     <button id="turnOnTimers">Turn ON timers</button>
 
@@ -98,11 +103,15 @@
 
 
 <script>
+
+  
+
   document.addEventListener('DOMContentLoaded', () => {
-    const timeLeftDisplay = document.querySelector('#countdown');
+    const displayMinutes = document.getElementById('minutes-2');
+    const displaySeconds = document.getElementById('seconds-2');
     const startBtn = document.querySelector('#turnOnTimers');
-    const numberOfMinutes = 0;
-    const numberOfSeconds = 10;
+    const numberOfMinutes = Number(document.getElementById('minutes-2').textContent);
+    const numberOfSeconds = Number(document.getElementById('seconds-2').textContent);
     let seconds = (60 * numberOfMinutes) + numberOfSeconds;
 
     function countdown() {
@@ -124,8 +133,9 @@
           clearInterval(remainingSeconds = 0);
           clearInterval(minutes = 0);
           timeLeftDisplay.innerHTML = 'Time left! You should do...';
-        } else {
-          timeLeftDisplay.innerHTML = minutes + ':' + remainingSeconds;
+        } else { //display current time
+          displayMinutes.innerHTML = minutes 
+          displaySeconds.innerHTML = remainingSeconds;
           seconds--;
         }
       }, 1000)
