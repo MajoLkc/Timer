@@ -98,6 +98,26 @@ footer {
   border: 5px solid rgb(60, 60, 60);
 }
 
+.progress {
+  background-color: #d8d8d8;
+  border-radius: 20px;
+  height: 30px;
+  width: 100%;
+}
+
+.progress-done {
+  background: linear-gradient(to left, orange, red);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  height: 100%;
+  width: 100%;
+  transition: 1s ease 0.3s;
+  color: black;
+}
+
 .hide-desktop-only {
   display: none;
 }

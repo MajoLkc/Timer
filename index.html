@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="public/css/style.css">
   <link rel="shortcut icon" href="public/images/logo.png" type="image/x-icon">
   <script src="public/js/footer.js"></script>
+  <!-- <script src="public/js/startTimers.js"></script> -->
 </head>
 
 <body>
@@ -37,39 +38,65 @@
 
     <label for="timer-1" class="col">
       <p>Zdravý zrak</p>
-      <!-- <label for="check">Zdravý zrak</label> -->
       <input type="checkbox" id="timer-1">
-      <p id="countdown"><span id="minutes-1">05</span>:<span id="seconds-1">50</span></p>
+      <div class="progress">
+        <div class="progress-done">
+          <div class="timer">
+            <span id="minutes-1">00</span>:<span id="seconds-1">05</span>
+          </div>
+          <span id="timerDone-1"></span>
+        </div>
+      </div>
     </label>
 
     <label for="timer-2" class="col">
       <h3>Zdravé zápästie</h3>
       <input type="checkbox" id="timer-2">
-      <p id="countdown"><span id="minutes-2">09</span>:<span id="seconds-2">15</span></p>
+      <div class="progress">
+        <div class="progress-done">
+          <span id="minutes-2">09</span>:<span id="seconds-2">15</span>
+        </div>
+      </div>
     </label>
 
     <label for="timer-3" class="col">
       <h3>Zdravá chrbtica</h3>
       <input type="checkbox" id="timer-3">
-      <p id="countdown"><span id="minutes-3">12</span>:<span id="seconds-3">00</span></p>
+      <div class="progress">
+        <div class="progress-done">
+          <span id="minutes-3">12</span>:<span id="seconds-3">00</span>
+        </div>
+      </div>
     </label>
 
     <label for="timer-4" class="col">
       <h3>Pitný režim</h3>
       <input type="checkbox" id="timer-4">
-      <p id="countdown"><span id="minutes-4">05</span>:<span id="seconds-4">50</span></p>
+      <div class="progress">
+        <div class="progress-done">
+          <span id="minutes-4">01</span>:<span id="seconds-4">50</span>
+        </div>
+      </div>
     </label>
 
     <label for="timer-5" class="col">
       <h3>Prestávka v učení</h3>
       <input type="checkbox" id="timer-5">
-      <p id="countdown"><span id="minutes-5">05</span>:<span id="seconds-5">50</span></p>
+      <div class="progress">
+        <div class="progress-done">
+          <span id="minutes-5">01</span>:<span id="seconds-5">50</span>
+        </div>
+      </div>
     </label>
 
     <label for="timer-6" class="col">
       <h3>NEJAKÝ ĎALŠÍ</h3>
       <input type="checkbox" id="timer-6">
-      <p id="countdown"><span id="minutes-6">05</span>:<span id="seconds-6">50</span></p>
+      <div class="progress">
+        <div class="progress-done">
+          <span id="minutes-6">05</span>:<span id="seconds-6">50</span>
+        </div>
+      </div>
     </label>
 
     <button id="turnOnTimers">Turn ON timers</button>
@@ -106,42 +133,14 @@
 
   
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const displayMinutes = document.getElementById('minutes-2');
-    const displaySeconds = document.getElementById('seconds-2');
-    const startBtn = document.querySelector('#turnOnTimers');
-    const numberOfMinutes = Number(document.getElementById('minutes-2').textContent);
-    const numberOfSeconds = Number(document.getElementById('seconds-2').textContent);
-    let seconds = (60 * numberOfMinutes) + numberOfSeconds;
+  // setTimeout(() => {
+  //   progress.style.width = progress.getAttribute('data-done') + '%'
+  //   progress.style.opacity = 1;
+  // }, 500)
 
-    function countdown() {
-      setInterval(function () {
-        let minutes = Math.round((seconds - 30) / 60);
-        let remainingSeconds = seconds % 60;
 
-        if (minutes < 10) {
-          minutes = '0' + minutes;
-        }
 
-        // add 0 if there is less then 10 seconds
-        if (remainingSeconds < 10) {
-          remainingSeconds = '0' + remainingSeconds;
-        }
 
-        // stop counting at 0
-        if (seconds <= 0) {
-          clearInterval(remainingSeconds = 0);
-          clearInterval(minutes = 0);
-          timeLeftDisplay.innerHTML = 'Time left! You should do...';
-        } else { //display current time
-          displayMinutes.innerHTML = minutes 
-          displaySeconds.innerHTML = remainingSeconds;
-          seconds--;
-        }
-      }, 1000)
-    }
-    startBtn.addEventListener('click', countdown)
-  })
 
   // var startButton = document.getElementById('turnOnTimers');
 
