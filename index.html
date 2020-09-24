@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="public/css/style.css">
   <link rel="shortcut icon" href="public/images/logo.png" type="image/x-icon">
   <script src="public/js/footer.js"></script>
-  <!-- <script src="public/js/startTimers.js"></script> -->
+  <script src="public/js/startTimers.js"></script>
 </head>
 
 <body>
@@ -19,8 +19,8 @@
       <div class="logo"><a href="index.html"><span class="highlight">BetLife</span> - Healthy timers</a></div>
 
       <nav>
-        <a href="#" class="mybutton">ABOUT US</a>
-        <a href="contactUs.html" class="mybutton">CONTACT US</a>
+        <a href="#" class="mybutton">ABOUT</a>
+        <a href="contactUs.html" class="mybutton">CONTACT</a>
       </nav>
 
       <div class="mob-wrapper">
@@ -36,12 +36,12 @@
 
   <div class="container">
 
-    <label for="timer-1" class="col">
+    <label for="timerCheckbox-1" class="col">
       <p>Zdravý zrak</p>
-      <input type="checkbox" id="timer-1">
+      <input type="checkbox" id="timerCheckbox-1">
       <div class="progress">
-        <div class="progress-done">
-          <div class="timer">
+        <div class="progress-done" id="progress-done-1">
+          <div id="timer-1">
             <span id="minutes-1">00</span>:<span id="seconds-1">05</span>
           </div>
           <span id="timerDone-1"></span>
@@ -49,52 +49,67 @@
       </div>
     </label>
 
-    <label for="timer-2" class="col">
+    <label for="timerCheckbox-2" class="col">
       <h3>Zdravé zápästie</h3>
-      <input type="checkbox" id="timer-2">
+      <input type="checkbox" id="timerCheckbox-2">
       <div class="progress">
-        <div class="progress-done">
-          <span id="minutes-2">09</span>:<span id="seconds-2">15</span>
+        <div class="progress-done" id="progress-done-2">
+          <div id="timer-2">
+            <span id="minutes-2">09</span>:<span id="seconds-2">15</span>
+          </div>
+          <span id="timerDone-2"></span>
         </div>
       </div>
     </label>
 
-    <label for="timer-3" class="col">
+    <label for="timerCheckbox-3" class="col">
       <h3>Zdravá chrbtica</h3>
-      <input type="checkbox" id="timer-3">
+      <input type="checkbox" id="timerCheckbox-3">
       <div class="progress">
-        <div class="progress-done">
-          <span id="minutes-3">12</span>:<span id="seconds-3">00</span>
+        <div class="progress-done" id="progress-done-3">
+          <div id="timer-3">
+            <span id="minutes-3">12</span>:<span id="seconds-3">00</span>
+          </div>
+          <span id="timerDone-3"></span>
         </div>
       </div>
     </label>
 
-    <label for="timer-4" class="col">
+    <label for="timerCheckbox-4" class="col">
       <h3>Pitný režim</h3>
-      <input type="checkbox" id="timer-4">
+      <input type="checkbox" id="timerCheckbox-4">
       <div class="progress">
-        <div class="progress-done">
-          <span id="minutes-4">01</span>:<span id="seconds-4">50</span>
+        <div class="progress-done" id="progress-done-4">
+          <div id="timer-4">
+            <span id="minutes-4">01</span>:<span id="seconds-4">50</span>
+          </div>
+          <span id="timerDone-4"></span>
         </div>
       </div>
     </label>
 
-    <label for="timer-5" class="col">
+    <label for="timerCheckbox-5" class="col">
       <h3>Prestávka v učení</h3>
-      <input type="checkbox" id="timer-5">
+      <input type="checkbox" id="timerCheckbox-5">
       <div class="progress">
-        <div class="progress-done">
-          <span id="minutes-5">01</span>:<span id="seconds-5">50</span>
+        <div class="progress-done" id="progress-done-5">
+          <div id="timer-5">
+            <span id="minutes-5">01</span>:<span id="seconds-5">50</span>
+          </div>
+          <span id="timerDone-5"></span>
         </div>
       </div>
     </label>
 
-    <label for="timer-6" class="col">
+    <label for="timerCheckbox-6" class="col">
       <h3>NEJAKÝ ĎALŠÍ</h3>
-      <input type="checkbox" id="timer-6">
+      <input type="checkbox" id="timerCheckbox-6">
       <div class="progress">
-        <div class="progress-done">
-          <span id="minutes-6">05</span>:<span id="seconds-6">50</span>
+        <div class="progress-done" id="progress-done-6">
+          <div id="timer-6">
+            <span id="minutes-6">05</span>:<span id="seconds-6">50</span>
+          </div>
+          <span id="timerDone-6"></span>
         </div>
       </div>
     </label>
@@ -131,7 +146,44 @@
 
 <script>
 
-  
+  // const startButton = document.querySelector('#turnOnTimers');
+
+  // function checkCheckboxes() {
+  //   let timersSelected = [];
+  //   for (var numberOfTimer = 1; numberOfTimer <= 6; numberOfTimer++) {
+  //     var checkbox = document.querySelector('#timer-' + numberOfTimer).checked;
+  //     if (checkbox) {
+  //       timersSelected.push(numberOfTimer);
+  //     }
+  //   }
+  //   return timersSelected;
+  // }
+
+  // startButton.addEventListener('click', checkCheckboxes);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // setTimeout(() => {
   //   progress.style.width = progress.getAttribute('data-done') + '%'
