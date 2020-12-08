@@ -35,85 +35,86 @@
 
   <div class="container">
 
+    <!-- timer 0 -->
     <label for="timerCheckbox-0" class="col">
-      <p>Zdravý zrak</p>
+      <h2 id="timerName-0"></h2>
       <input type="checkbox" id="timerCheckbox-0">
+      <div id="timer-0">
+        <span id="minutes-0"></span>:<span id="seconds-0"></span>
+      </div>
+      <span id="timerDone-0"></span>
       <div class="progress">
         <div class="progress-done" id="progress-done-0">
-          <div id="timer-0">
-            <span id="minutes-0">00</span>:<span id="seconds-0">05</span>
-          </div>
-          <span id="timerDone-0"></span>
         </div>
       </div>
-      <button id="resetBtn-0" style="display: none;" onclick="resetCountdown(this.id)">Reset</button>
+      <button id="resetBtn-0" style="display: none;">Reset</button>
     </label>
-
+    <!-- timer 1 -->
     <label for="timerCheckbox-1" class="col">
-      <h3>Zdravé zápästie</h3>
+      <h2 id="timerName-1"></h2>
       <input type="checkbox" id="timerCheckbox-1">
+      <div id="timer-1">
+        <span id="minutes-1"></span>:<span id="seconds-1"></span>
+      </div>
+      <span id="timerDone-1"></span>
       <div class="progress">
         <div class="progress-done" id="progress-done-1">
-          <div id="timer-1">
-            <span id="minutes-1">09</span>:<span id="seconds-1">15</span>
-          </div>
-          <span id="timerDone-1"></span>
         </div>
       </div>
       <button id="resetBtn-1" style="display: none;">Reset</button>
     </label>
-
+    <!-- timer 2 -->
     <label for="timerCheckbox-2" class="col">
-      <h3>Zdravá chrbtica</h3>
+      <h2 id="timerName-2"></h2>
       <input type="checkbox" id="timerCheckbox-2">
+      <div id="timer-2">
+        <span id="minutes-2"></span>:<span id="seconds-2"></span>
+      </div>
+      <span id="timerDone-2"></span>
       <div class="progress">
         <div class="progress-done" id="progress-done-2">
-          <div id="timer-2">
-            <span id="minutes-2">12</span>:<span id="seconds-2">00</span>
-          </div>
-          <span id="timerDone-2"></span>
         </div>
       </div>
       <button id="resetBtn-2" style="display: none;">Reset</button>
     </label>
-
+    <!-- timer 3 -->
     <label for="timerCheckbox-3" class="col">
-      <h3>Pitný režim</h3>
+      <h2 id="timerName-3"></h2>
       <input type="checkbox" id="timerCheckbox-3">
+      <div id="timer-3">
+        <span id="minutes-3"></span>:<span id="seconds-3"></span>
+      </div>
+      <span id="timerDone-3"></span>
       <div class="progress">
         <div class="progress-done" id="progress-done-3">
-          <div id="timer-3">
-            <span id="minutes-3">01</span>:<span id="seconds-3">50</span>
-          </div>
-          <span id="timerDone-3"></span>
         </div>
       </div>
       <button id="resetBtn-3" style="display: none;">Reset</button>
     </label>
-
+    <!-- timer 4 -->
     <label for="timerCheckbox-4" class="col">
-      <h3>Prestávka v učení</h3>
+      <h2 id="timerName-4"></h2>
       <input type="checkbox" id="timerCheckbox-4">
+      <div id="timer-4">
+        <span id="minutes-4"></span>:<span id="seconds-4"></span>
+      </div>
+      <span id="timerDone-4"></span>
       <div class="progress">
         <div class="progress-done" id="progress-done-4">
-          <div id="timer-4">
-            <span id="minutes-4">01</span>:<span id="seconds-4">50</span>
-          </div>
-          <span id="timerDone-4"></span>
         </div>
       </div>
       <button id="resetBtn-4" style="display: none;">Reset</button>
     </label>
-
+    <!-- timer 5 -->
     <label for="timerCheckbox-5" class="col">
-      <h3>NEJAKÝ ĎALŠÍ</h3>
-      <input type="checkbox" id="timerCheckbox-5" onclick="Shutup()">
+      <h2 id="timerName-5"></h2>
+      <input type="checkbox" id="timerCheckbox-5">
+      <div id="timer-5">
+        <span id="minutes-5"></span>:<span id="seconds-5"></span>
+      </div>
+      <span id="timerDone-6"></span>
       <div class="progress">
         <div class="progress-done" id="progress-done-5">
-          <div id="timer-5">
-            <span id="minutes-5">05</span>:<span id="seconds-5">50</span>
-          </div>
-          <span id="timerDone-6"></span>
         </div>
       </div>
       <button id="resetBtn-5" style="display: none;">Reset</button>
@@ -125,11 +126,11 @@
 
   <div class="footer-container">
     <footer>
-      <div class="logo"><a href="index.html"><span class="highlight">BetLife</span> - Healthy timers</a></div>
+      <div class="logo"><a href="index.html"><span class="highlight">BetLife</span> Healthy timers</a></div>
 
       <nav>
-        <a href="#" class="mybutton">ABOUT US</a>
-        <a href="contactUs.html" class="mybutton">CONTACT US</a>
+        <a href="#" class="mybutton">ABOUT</a>
+        <a href="contactUs.html" class="mybutton">CONTACT</a>
       </nav>
 
       <div class="mob-wrapper">
@@ -147,18 +148,4 @@
 
 </html>
 
-<script src="public/js/startTimers.js"></script>
-
-
-
-<script>
-  function Shutup() { // TODO pridat checkbox function na vsetky chceckboxy (onclick) inak ju nespusti
-    var checkbox = document.getElementById('timerCheckbox-6');
-
-    if (checkbox.checked == true) {
-      alert('Checkbox is checked');
-    } else {
-      console.log('Checkbox is not checked');
-    }
-  }
-</script>
+<script src="public/js/timers.js"></script>

@@ -1,3 +1,12 @@
+var start = document.querySelector('#turnOnTimers');
+var start = document.querySelector('#resetBtn-0');
+
+var start = document.querySelector();
+var start = document.querySelector();
+var start = document.querySelector();
+
+
+/*
 let timerIndex;
 const numberOfTimers = document.querySelectorAll('.col').length;
 
@@ -44,6 +53,10 @@ function resetCountdown(buttonId) {
   const resetBtn = document.querySelector('#resetBtn-' + buttonId);
   let seconds = (60 * numberOfMinutes) + numberOfSeconds;
   const fullSeconds = seconds;
+
+  progress.style.width = 100 + '%';
+  minutesPosition.innerHTML = numberOfMinutes;
+  secondsPosition.innerHTML = numberOfSeconds;
 
   setInterval(function () {
     let minutes = Math.round((seconds - 30) / 60);
@@ -130,3 +143,4 @@ document.addEventListener('DOMContentLoaded', () => {
   const startBtn = document.querySelector('#turnOnTimers');
   startBtn.addEventListener('click', countdown);
 })
+*/

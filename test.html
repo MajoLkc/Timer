@@ -1,0 +1,74 @@
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Untitled Document</title>
+  <script type="text/javascript">
+    const timers = [
+      { //timer 0
+        minutes: 0,
+        seconds: 0
+      },
+      { //timer 1
+        minutes: 0,
+        seconds: 0
+      },
+      { //timer 2
+        minutes: 10,
+        seconds: 0
+      },
+      { //timer 3
+        minutes: 0,
+        seconds: 0
+      },
+      { //timer 4
+        minutes: 0,
+        seconds: 0
+      },
+      { //timer 5
+        minutes: 0,
+        seconds: 0
+      },
+    ];
+
+    document.addEventListener('DOMContentLoaded', function() {
+      text = document.getElementById('countdown');
+      text.innerHTML = 'minutes are ' + timers[2].minutes + ' and seconds are ' + timers[2].seconds;
+    })
+
+    // var interval;
+    // var minutes = 5;
+    // var seconds = 10;
+
+
+    // function countdown(element) {
+    //   interval = setInterval(function () {
+    //     var el = document.getElementById(element);
+    //     if (seconds == 0) {
+    //       if (minutes == 0) {
+    //         alert(el.innerHTML = "countdown's over!");
+    //         clearInterval(interval);
+    //         return;
+    //       } else {
+    //         minutes--;
+    //         seconds = 60;
+    //       }
+    //     }
+    //     if (minutes > 0) {
+    //       var minute_text = minutes + (minutes > 1 ? ' minutes' : ' minute');
+    //     } else {
+    //       var minute_text = '';
+    //     }
+    //     var second_text = seconds > 1 ? 'seconds' : 'second';
+    //     el.innerHTML = minute_text + ' ' + seconds + ' ' + second_text + ' remaining';
+    //     seconds--;
+    //   }, 1000);
+    // }
+  </script>
+</head>
+
+<body>
+  <div id='countdown'></div>
+  <!-- <input type="button" onclick="countdown('countdown');" value="Start" />
+  <input type="button" onclick="minutes=5;seconds=10;" value="Reset" /> -->
+</body>
+
+</html>
