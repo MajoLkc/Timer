@@ -201,6 +201,10 @@ input[type='checkbox'] {
     margin-left: -70px;
     text-align: center;
   }
+
+  .progress {
+    height: 25px;
+  }
 }
 
 /* Mobile View */
@@ -211,6 +215,10 @@ input[type='checkbox'] {
 
   .hide-mobile {
       display: none;
+  }
+
+  .progress {
+    height: 20px;
   }
 }
 
