@@ -1,7 +1,7 @@
 const timers = [
   { //timer 0
     name: 'Save eyes',
-    minutes: 1,
+    minutes: 0,
     seconds: 5,
     message: 'Do not look at monitor, please.'
   },
@@ -143,10 +143,14 @@ function addZeroToNumberSmallerThanTen(number, position = 0) {
 function highlightClicked(clickedBox) {
   const checkbox = document.querySelector('#timerCheckbox-' + clickedBox);
   const box = document.querySelector('#col-' + clickedBox);
-  if (checkbox.checked == true) {
-    highlightBox(box);
+  if (!called) {
+    if (checkbox.checked == true) {
+      highlightBox(box);
+    } else {
+      stopLightBox(box);
+    }
   } else {
-    stopLightBox(box);
+    return
   }
 }
 
@@ -161,10 +165,20 @@ function stopLightBox(box) {
 }
 
 startBtn.addEventListener('click', () => {
-  if (!called) {
-    countdown()
+  for (let i = 0; i < numberOfTimers; i++) {
+    const checkbox = document.querySelector('#timerCheckbox-' + i);
+    
+  }
+
+  if (1) {
+    if (!called) {
+      countdown()
+    } else {
+      alert('Countdown was started')
+    }
   } else {
-    alert('Countdown was started')
+    alert('You didn\'t selected any timer')
+    return
   }
 });
 
@@ -184,15 +198,37 @@ function getSelectedTimers() {
   return timersSelected;
 }
 
+function fadeNotSelectedBoxes() {
+  for (let i = 0; i < numberOfTimers; i++) {
+    const checkbox = document.querySelector('#timerCheckbox-' + i);
+    const box = document.querySelector('#col-' + i);
+    if (!checkbox.checked) {
+      box.style.cursor = 'not-allowed';
+      box.style.backgroundColor = 'rgb(43, 226, 147, 0.3)';
+      box.style.color = 'rgb(255, 255, 255, 0.3)';
+    }
+  }
+}
+
 var interval, called = false;
 function countdown() {
   let timerNumber, timersSelected;
   timersSelected = getSelectedTimers();
   var numberOfSelectedTimers = timersSelected.length;
+  for (let i = 0; i < numberOfTimers; i++) {
+    const box = document.querySelector('#col-' + i);
+    box.style.cursor = 'default';
+    // toto treba doladit, aby sa divka, ktore nie su vybrane dali ako faded
+    box.style.opacity = 1;
+  }
+
+  fadeNotSelectedBoxes();
+
+  called = true;
 
   for (timerNumber = 0; timerNumber < numberOfSelectedTimers; timerNumber++) {
     startBtn.innerText = 'New timers selection';
-    called = true;
+
     const selectedTimer = timersSelected[timerNumber]
     const minutesPosition = document.getElementById('minutes-' + selectedTimer);
     const secondsPosition = document.getElementById('seconds-' + selectedTimer);
