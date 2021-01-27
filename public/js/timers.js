@@ -13,8 +13,8 @@ const timers = [
   },
   { //timer 2
     name: 'Wrist-reminder',
-    minutes: 3,
-    seconds: 30,
+    minutes: 55,
+    seconds: 0,
     message: 'Stretch your wrist, please.'
   },
   { //timer 3
@@ -39,6 +39,7 @@ const timers = [
 
 const startBtn = document.getElementById('turnOnTimers');
 const numberOfTimers = document.querySelectorAll('.col').length;
+const resetBtn = document.getElementById('resetBtn-0'); //just for testing, this should not works like this
 // const box = document.querySelector('#col-');
 
 // this function is to dinamically rendering HTML elements, for now I am not using it
@@ -46,7 +47,7 @@ function load_home() {
   document.querySelector("#container").innerHTML = '<object type="text/html" data="home.html"></object>';
 }
 
-// this function is to dinamically rendering HTML elements, for now I am not using it
+// this function is to dynamically rendering HTML elements, for now I am not using it
 function addElement() {
   const container = document.getElementById('container');
   const label = document.createElement("label");
@@ -165,19 +166,14 @@ function stopLightBox(box) {
 }
 
 startBtn.addEventListener('click', () => {
-  for (let i = 0; i < numberOfTimers; i++) {
-    const checkbox = document.querySelector('#timerCheckbox-' + i);
-    
-  }
-
-  if (1) {
+  if (checkIfAtLeastOneTimerIsSelected()) {
     if (!called) {
       countdown()
     } else {
       alert('Countdown was started')
     }
   } else {
-    alert('You didn\'t selected any timer')
+    alert('You have to select at least one timer')
     return
   }
 });
@@ -202,11 +198,31 @@ function fadeNotSelectedBoxes() {
   for (let i = 0; i < numberOfTimers; i++) {
     const checkbox = document.querySelector('#timerCheckbox-' + i);
     const box = document.querySelector('#col-' + i);
+    const time = document.querySelector('#timer-' + i);
+    const progressBar = document.querySelector('#progress-done-' + i);
     if (!checkbox.checked) {
       box.style.cursor = 'not-allowed';
       box.style.backgroundColor = 'rgb(43, 226, 147, 0.3)';
       box.style.color = 'rgb(255, 255, 255, 0.3)';
+      time.style.opacity = 0.3;
+      progressBar.style.opacity = 0.3;
     }
+  }
+}
+
+function checkIfAtLeastOneTimerIsSelected() {
+  let numberOfSelectedTimers = 0;
+  for (let i = 0; i < numberOfTimers; i++) {
+    const checkbox = document.querySelector('#timerCheckbox-' + i);
+    if (checkbox.checked) {
+      numberOfSelectedTimers = numberOfSelectedTimers + 1;
+    }
+  }
+
+  if (numberOfSelectedTimers == 0) {
+    return false
+  } else {
+    return true
   }
 }
 
@@ -218,7 +234,6 @@ function countdown() {
   for (let i = 0; i < numberOfTimers; i++) {
     const box = document.querySelector('#col-' + i);
     box.style.cursor = 'default';
-    // toto treba doladit, aby sa divka, ktore nie su vybrane dali ako faded
     box.style.opacity = 1;
   }
 
@@ -246,7 +261,9 @@ function countdown() {
     let currentSeconds = (60 * numberOfMinutes) + numberOfSeconds;
     const totalSeconds = currentSeconds;
 
-    setInterval(() => {
+    resetBtn.style.display = 'block';
+
+    var time = setInterval(function interval() {
       let minutes = Math.round((currentSeconds - 30) / 60);
       let remainingSeconds = currentSeconds % 60;
       let remainingPercentage = (currentSeconds / totalSeconds) * 100;
@@ -265,14 +282,10 @@ function countdown() {
 
       // stop counting at 0
       if (currentSeconds <= 0) {
-        clearInterval(remainingSeconds = 0);
-        clearInterval(minutes = 0);
         progress.style.width = 0 + '%';
         timer.textContent = timers[selectedTimer].message;
         beep();
-        return
-        // timer.style.display = 'none';
-        // timerDoneText.innerHTML = 'Time left! You should do...';
+        clearInterval(time);
       } else { //display current time
         minutesPosition.innerHTML = minutes;
         secondsPosition.innerHTML = remainingSeconds;
@@ -282,3 +295,7 @@ function countdown() {
     }, 1000)
   }
 }
+
+resetBtn.addEventListener('click', () => {
+  alert('Fungujem!!!')
+})

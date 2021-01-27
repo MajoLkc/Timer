@@ -8,12 +8,15 @@
   <link rel="stylesheet" href="public/css/css-reset.css">
   <link rel="stylesheet" href="public/css/style.css">
   <link rel="shortcut icon" href="public/images/logo.png" type="image/x-icon">
+  <!-- <script src="https://code.jquery.com/jquery-3.5.0.js"></script> -->
   <script src="public/js/footer.js"></script>
 </head>
 
 <body>
 
-  <div class="header-container">
+  
+
+  <div class="header-container" id="xxx">
     <header>
       <div class="logo">
         <a href="index.html">
@@ -49,7 +52,7 @@
         <div class="progress-done" id="progress-done-0">
         </div>
       </div>
-      <button id="resetBtn-0" style="display: none;">Reset</button>
+      <button id="resetBtn-0" class="resetBtn" style="display: none;">Reset</button>
     </label>
     <!-- timer 1 -->
     <label for="timerCheckbox-1" class="col" id="col-1">
@@ -144,5 +147,12 @@
 </body>
 
 </html>
+
+<script>
+  // $(document).ready(function(){
+  //   $("#xxx").load("layouts/header.html");
+  // })
+  
+</script>
 
 <script src="public/js/timers.js"></script>
