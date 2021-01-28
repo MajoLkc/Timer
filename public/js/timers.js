@@ -226,7 +226,7 @@ function checkIfAtLeastOneTimerIsSelected() {
   }
 }
 
-var interval, called = false;
+var interval, time, called = false;
 function countdown() {
   let timerNumber, timersSelected;
   timersSelected = getSelectedTimers();
@@ -263,7 +263,7 @@ function countdown() {
 
     resetBtn.style.display = 'block';
 
-    var time = setInterval(function interval() {
+    time = setInterval(function interval() {
       let minutes = Math.round((currentSeconds - 30) / 60);
       let remainingSeconds = currentSeconds % 60;
       let remainingPercentage = (currentSeconds / totalSeconds) * 100;
@@ -297,5 +297,42 @@ function countdown() {
 }
 
 resetBtn.addEventListener('click', () => {
-  alert('Fungujem!!!')
+  const number = resetBtn.id;
+  clearInterval(time);
+  let currentSeconds = 10;
+  const totalSeconds = currentSeconds;
+  const minutesPosition = document.getElementById('minutes-0');
+  const secondsPosition = document.getElementById('seconds-0');
+  const progress = document.querySelector('#progress-done-0');
+  const timer = document.querySelector('#timer-0');
+  time = setInterval(function interval() {
+    let minutes = Math.round((currentSeconds - 30) / 60);
+    let remainingSeconds = currentSeconds % 60;
+    let remainingPercentage = (currentSeconds / totalSeconds) * 100;
+
+    // TODO find out how to implement out functions into setInterval function
+    // addZeroToNumberSmallerThanTen(minutes);
+    // addZeroToNumberSmallerThanTen(remainingSeconds);
+
+    if (minutes < 10) {
+      minutes = '0' + minutes;
+    }
+    // add 0 if there is less then 10 seconds
+    if (remainingSeconds < 10) {
+      remainingSeconds = '0' + remainingSeconds;
+    }
+
+    // stop counting at 0
+    if (currentSeconds <= 0) {
+      progress.style.width = 0 + '%';
+      timer.textContent = timers[0].message;
+      beep();
+      clearInterval(time);
+    } else { //display current time
+      minutesPosition.innerHTML = minutes;
+      secondsPosition.innerHTML = remainingSeconds;
+      progress.style.width = remainingPercentage + '%';
+      currentSeconds--;
+    }
+  }, 1000)
 })
