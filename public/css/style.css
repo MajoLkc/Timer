@@ -44,7 +44,7 @@ nav a:hover {
   width: 100%;
 }
 
-#container button {
+#container #turnOnTimers {
   width: 100%;
   height: 50px;
   cursor: pointer;
@@ -52,11 +52,11 @@ nav a:hover {
   border: 3px solid rgb(60, 60, 60);
   border-radius: 5px;
 }
-#container button:hover {
-  width: 100%;
-  height: 50px;
+#container #turnOnTimers:hover {
   background-color: rgb(60, 60, 60);
   color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,1);
+  transition: 0.1s;
 }
 
 header {
@@ -123,6 +123,32 @@ input[type='checkbox'] {
   height: 100%;
   width: 100%;
   transition: 1s ease 0.3s;
+}
+
+.resetBtn-container {
+  margin: 15px auto;
+  width: 100%;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+}
+
+.resetBtn {
+  background-color: white;
+  color: rgb(60, 60, 60);
+  font-weight: bold;
+  border-radius: 10px;
+  height: 100%;
+  width: 50%;
+  cursor: pointer;
+  border: 2px solid rgb(60, 60, 60);
+}
+
+.resetBtn:hover {
+  color: white;
+  background-color: rgb(60, 60, 60);
+  box-shadow: 0 2px 5px rgba(0,0,0,1);
+  transition: 0.1s;
 }
 
 .hide-desktop-only {
